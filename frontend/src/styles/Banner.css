@@ -1,0 +1,54 @@
+/* Banner.css */
+.banner-slider {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.banner-item {
+  position: relative;
+  overflow: hidden; /* スライドさせるための設定 */
+}
+
+.banner-item img {
+  max-width: 95%; /* 画像の最大幅を50%に設定 */
+  margin: 0 auto; /* 中央揃え */
+  height: auto;
+  display: block;
+}
+
+/* ドットのスタイル */
+.slick-dots {
+  bottom: 10px; /* ドットの位置 */
+}
+
+@media (max-width: 768px) {
+  .banner-item img {
+    max-width: 95%; /* 画像の最大幅を50%に設定 */
+    margin: 0 auto; /* 中央揃え */
+  }
+}
+
+/* 左右の矢印ボタン */
+.prev-arrow, .next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev-arrow {
+  left: 10px; /* 左側の矢印 */
+}
+
+.next-arrow {
+  right: 10px; /* 右側の矢印 */
+}
+
+.prev-arrow:hover, .next-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* ホバー時の色 */
+}
