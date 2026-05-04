@@ -1,0 +1,35 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+
+{% block after_field_sets %}
+    {{ block.super }}
+    <input type="hidden" name="object_id" value="{{ original.id }}">
+    <div id="preview-area">
+        <!-- プレビュー画像はここに追加されます -->
+    </div>
+    {% if original.id is not NONE %}
+    <label class="custom-file-upload">
+        <input type="file" id="image-input" multiple accept="image/*" onchange="previewImages(this);" />
+        画像を選択する
+    </label>
+    {% endif %}
+    <div id="image-modal" style="display:none;">
+        <span id="close-modal">×</span>
+        <img id="modal-image" alt="Expanded Image"/>
+    </div>
+    <script>
+        // 画像のディレクトリを指定（Djangoのテンプレートから取得）
+        const imageDir = "{{ image_dir }}";
+
+        // 既存の画像をテンプレートから受け取る
+        let existingImages = [];
+        {% for image in image_files %}
+        existingImages.push("{{ image }}");
+        {% endfor %}
+    </script>
+{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/clothes_preview.css' %}">
+    <script src="{% static 'js/clothes_preview.js' %}"></script>
+{% endblock %}

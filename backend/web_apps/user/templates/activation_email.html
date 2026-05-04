@@ -1,0 +1,45 @@
+<!-- activation_email.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="http://localhost:8000/static/vinbazz.png" alt="Logo" style="width: 100px; display: block; margin: auto;"/>
+        <p> {{ user.username }} 様 </p>
+        <br>
+        <p>はじめまして、「vinbazz」です。</p>
+        <br>
+        <p>ご登録いただきありがとうございます。</p>
+        <p>以下のリンクをクリックしてアカウントの認証を完了してください。</p>
+        <p>
+            <a href="http://{{ domain }}/api/activate/{{ uid }}/{{ token }}/" style="color: #007bff;">アカウント認証リンク</a>
+        </p>
+        <p>※リンクの有効期限は24時間です。</p>
+        <p class="footer">このメールは自動送信されています。返信しないでください。</p>
+    </div>
+</body>
+</html>
